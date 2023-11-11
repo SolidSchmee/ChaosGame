@@ -1,3 +1,5 @@
+//Chaos Game by Ryan Campfield & Josh Adams
+
 // Include important C++ libraries here
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
