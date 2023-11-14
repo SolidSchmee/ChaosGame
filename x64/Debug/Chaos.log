@@ -1,2 +1,2 @@
 ﻿  ChaosGame.cpp
-  Chaos.vcxproj -> C:\Users\w1936937\source\repos\ChaosGame\x64\Debug\Chaos.exe
+c1xx : fatal error C1083: Cannot open source file: 'code\ChaosGame.cpp': No such file or directory

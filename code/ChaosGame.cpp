@@ -12,6 +12,7 @@ using namespace sf;
 using namespace std;
 int randPoint;
 int pointAt;
+int triforcePower;
 
 int main()
 {
@@ -24,19 +25,23 @@ int main()
     vector<Vector2f> points;
 
     Font font;
-    font.loadFromFile("Spooked.ttf");
+    font.loadFromFile("zeldadxt.ttf");
 
     Text myText;
     myText.setCharacterSize(75);
-    myText.setFillColor(Color::Red);
+    myText.setFillColor(Color::Green);
     myText.setFont(font);
     
     Text instruct;
     instruct.setCharacterSize(25);
-    instruct.setFillColor(Color::Red);
+    instruct.setFillColor(Color::Green);
     instruct.setFont(font);
 
-    
+    Texture link;
+    link.loadFromFile("link.png");
+    Sprite linkSprite;
+    linkSprite.setTexture(link);
+    linkSprite.setPosition(1300, 450);
 
 	while (window.isOpen())
 	{
@@ -111,7 +116,7 @@ int main()
         {
             RectangleShape rect(Vector2f(10,10));
             rect.setPosition(Vector2f(vertices[i].x, vertices[i].y));
-            rect.setFillColor(Color::White);
+            rect.setFillColor(Color::Yellow);
             window.draw(rect);
         }
 
@@ -119,25 +124,25 @@ int main()
         {
             RectangleShape rect(Vector2f(10, 10));
             rect.setPosition(Vector2f(points[i].x, points[i].y));
-            rect.setFillColor(Color::White);
+            rect.setFillColor(Color::Yellow);
             window.draw(rect);
         }
-       
+        triforcePower = points.size();
         FloatRect instructRect = instruct.getLocalBounds();
         instruct.setOrigin(instructRect.left + instructRect.width/2.0f,
             instructRect.top + instructRect.height/2.0f);
-        instruct.setPosition(500, 200);
+        instruct.setPosition(600, 200);
         stringstream is;
-        is << "Click 4 points(Press ESC to quit)" << endl;
+        is << "Click 3 points to make triangle" << endl <<"Click inside triangle" << endl <<"(Press ESC to quit)" << endl << "Triforce Power : " << triforcePower << endl;
         instruct.setString(is.str());
         window.draw(instruct);
 
-
+        window.draw(linkSprite);
         FloatRect textRect = myText.getLocalBounds();
         myText.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-        myText.setPosition(1920 / 2.0f, 1080/2.0f);
+        myText.setPosition(1920 / 2.0f, 300);
         stringstream ss;
-        ss << "Chaos" << endl;
+        ss << "Triforce" << endl;
         myText.setString(ss.str());
         window.draw(myText);
 
